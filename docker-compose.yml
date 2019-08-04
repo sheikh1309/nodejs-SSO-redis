@@ -1,0 +1,16 @@
+version: "3.2"
+services:
+  app:
+    build: .
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    depends_on:
+      - redis
+    ports:
+      - 3000:3000
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
